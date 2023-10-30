@@ -1,0 +1,29 @@
+{
+  "properties": [
+    {
+    "name": "ljsa.oidc.url-jwk-provider",
+    "description":"OpenID providers publish their metadata at a well-known URL which looks like this",
+    "defaultValue": "https://[base-server-url]/oauth2/jwks"
+    },
+    {
+      "name": "ljsa.oidc.subject-key",
+      "description":"The \"sub\" (subject) claim identifies the principal that is the\n   subject of the JWT",
+      "defaultValue": "sub"
+    },
+    {
+      "name": "ljsa.oidc.roles-key",
+      "description":"The \"role\" (role) claim listing the subject's roles",
+      "defaultValue": "groups"
+    },
+    {
+      "name": "ljsa.oidc.audience-key",
+      "description":"The audience of a token is the intended recipient of the token",
+      "defaultValue": "clientId"
+    },
+    {
+      "name": "ljsa.oidc.issuer-key",
+      "description":"The issuer of the JWT",
+      "defaultValue": "https://[base-server-url]/oauth2/jwks"
+    }
+  ]
+}

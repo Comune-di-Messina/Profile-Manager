@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/identity-ms/identity-ms-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/identity-ms/identity-ms-boot/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/identity-ms/identity-ms-boot/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/identity-ms/identity-ms-common/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/identity-ms/identity-ms-core/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/identity-ms/identity-ms-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ljsa-sdk/ljsa-sdk-core/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ljsa-sdk/ljsa-sdk-core/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ljsa-sdk/ljsa-sdk-plugins/ljsa-sdk-plugins-jwt/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ljsa-sdk/ljsa-sdk-plugins/ljsa-sdk-plugins-jwt/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ljsa-sdk/ljsa-sdk-plugins/ljsa-sdk-plugins-oidc/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ljsa-sdk/ljsa-sdk-plugins/ljsa-sdk-plugins-oidc/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/profile-ms/profile-ms-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/profile-ms/profile-ms-boot/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/profile-ms/profile-ms-boot/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/profile-ms/profile-ms-core/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/profile-ms/profile-ms-integration/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/profile-ms/profile-ms-shared/src/main/java" charset="UTF-8" />
+  </component>
+</project>

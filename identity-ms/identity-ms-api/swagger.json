@@ -1,0 +1,1252 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.2.0-SNAPSHOT",
+    "title" : "WSO2UserManagerAPI"
+  },
+  "basePath" : "/",
+  "tags" : [ {
+    "name" : "Application API"
+  }, {
+    "name" : "Authorization API"
+  }, {
+    "name" : "Bulk API"
+  }, {
+    "name" : "Role API"
+  }, {
+    "name" : "User API"
+  } ],
+  "schemes" : [ "http", "https" ],
+  "paths" : {
+    "/admin/applications" : {
+      "put" : {
+        "tags" : [ "Application API" ],
+        "summary" : "Update Application",
+        "description" : "Returns HTTP 201 if the Application is successfully updated",
+        "operationId" : "updateApplication",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "query",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/RoleUpdateDTO"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Valid Application"
+          },
+          "404" : {
+            "description" : "Application is not found"
+          }
+        },
+        "security" : [ {
+          "X-Auth-Token" : [ ]
+        } ]
+      }
+    },
+    "/admin/bulk/permissions" : {
+      "patch" : {
+        "tags" : [ "Bulk API" ],
+        "summary" : "Update permissions in bulk mode",
+        "description" : "",
+        "operationId" : "bulkUpdatePermissions",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/RolePermissionBulkDTO"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/ResponseDTO"
+            }
+          },
+          "201" : {
+            "description" : "Valid user is created",
+            "schema" : {
+              "$ref" : "#/definitions/ResponseDTO"
+            }
+          },
+          "409" : {
+            "description" : "errors",
+            "schema" : {
+              "$ref" : "#/definitions/ResponseDTO"
+            }
+          }
+        },
+        "security" : [ {
+          "X-Auth-Token" : [ ]
+        } ]
+      }
+    },
+    "/admin/bulk/roles" : {
+      "post" : {
+        "tags" : [ "Bulk API" ],
+        "summary" : "Create roles in bulk mode",
+        "description" : "",
+        "operationId" : "bulkCreateRoles",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/RoleCreateBulkDTO"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/ResponseDTO"
+            }
+          },
+          "201" : {
+            "description" : "Valid roles are created",
+            "schema" : {
+              "$ref" : "#/definitions/ResponseDTO"
+            }
+          },
+          "409" : {
+            "description" : "errors",
+            "schema" : {
+              "$ref" : "#/definitions/ResponseDTO"
+            }
+          }
+        },
+        "security" : [ {
+          "X-Auth-Token" : [ ]
+        } ]
+      },
+      "delete" : {
+        "tags" : [ "Bulk API" ],
+        "summary" : "Delete roles in bulk mode",
+        "description" : "",
+        "operationId" : "bulkDeleteRoles",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/RoleDeleteBulkDTO"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/ResponseDTO"
+            }
+          },
+          "201" : {
+            "description" : "Roles are deleted",
+            "schema" : {
+              "$ref" : "#/definitions/ResponseDTO"
+            }
+          },
+          "409" : {
+            "description" : "errors",
+            "schema" : {
+              "$ref" : "#/definitions/ResponseDTO"
+            }
+          }
+        },
+        "security" : [ {
+          "X-Auth-Token" : [ ]
+        } ]
+      },
+      "patch" : {
+        "tags" : [ "Bulk API" ],
+        "summary" : "Update roles in bulk mode",
+        "description" : "",
+        "operationId" : "bulkUpdateRoles",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/RoleUpdateBulkDTO"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/ResponseDTO"
+            }
+          },
+          "201" : {
+            "description" : "Valid user is created",
+            "schema" : {
+              "$ref" : "#/definitions/ResponseDTO"
+            }
+          },
+          "409" : {
+            "description" : "errors",
+            "schema" : {
+              "$ref" : "#/definitions/ResponseDTO"
+            }
+          }
+        },
+        "security" : [ {
+          "X-Auth-Token" : [ ]
+        } ]
+      }
+    },
+    "/admin/bulk/users" : {
+      "post" : {
+        "tags" : [ "Bulk API" ],
+        "summary" : "Create users in bulk mode",
+        "description" : "",
+        "operationId" : "bulkCreateUsers",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/UserCreateBulkDTO"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/ResponseDTO"
+            }
+          },
+          "201" : {
+            "description" : "Valid users are created",
+            "schema" : {
+              "$ref" : "#/definitions/ResponseDTO"
+            }
+          },
+          "409" : {
+            "description" : "errors",
+            "schema" : {
+              "$ref" : "#/definitions/ResponseDTO"
+            }
+          }
+        },
+        "security" : [ {
+          "X-Auth-Token" : [ ]
+        } ]
+      },
+      "delete" : {
+        "tags" : [ "Bulk API" ],
+        "summary" : "Delete users in bulk mode",
+        "description" : "",
+        "operationId" : "bulkDeleteUsers",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/UserDeleteBulkDTO"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/ResponseDTO"
+            }
+          },
+          "201" : {
+            "description" : "Users are deleted",
+            "schema" : {
+              "$ref" : "#/definitions/ResponseDTO"
+            }
+          },
+          "409" : {
+            "description" : "errors",
+            "schema" : {
+              "$ref" : "#/definitions/ResponseDTO"
+            }
+          }
+        },
+        "security" : [ {
+          "X-Auth-Token" : [ ]
+        } ]
+      }
+    },
+    "/admin/resources" : {
+      "patch" : {
+        "tags" : [ "Authorization API" ],
+        "summary" : "This function clears all the authorizations for the given resource",
+        "description" : "",
+        "operationId" : "clearResourceAuthorizations",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "resourceid",
+          "in" : "query",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : ""
+          }
+        },
+        "security" : [ {
+          "X-Auth-Token" : [ ]
+        } ]
+      }
+    },
+    "/admin/roles" : {
+      "post" : {
+        "tags" : [ "Role API" ],
+        "summary" : "Create new Role",
+        "description" : "",
+        "operationId" : "createRole",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Role"
+          }
+        } ],
+        "responses" : {
+          "201" : {
+            "description" : "Valid Role is created"
+          },
+          "404" : {
+            "description" : "Role is not found"
+          }
+        },
+        "security" : [ {
+          "X-Auth-Token" : [ ]
+        } ]
+      },
+      "delete" : {
+        "tags" : [ "Role API" ],
+        "summary" : "Delete a given role name",
+        "description" : "",
+        "operationId" : "deleteRole",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "rolename",
+          "in" : "query",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "204" : {
+            "description" : "Role is deleted"
+          },
+          "404" : {
+            "description" : "Valid Role is not found"
+          }
+        },
+        "security" : [ {
+          "X-Auth-Token" : [ ]
+        } ]
+      },
+      "patch" : {
+        "tags" : [ "Authorization API" ],
+        "summary" : "This function clears all authorizations of the role",
+        "description" : "",
+        "operationId" : "clearAllRoleAuthorization",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "rolename",
+          "in" : "query",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : ""
+          }
+        },
+        "security" : [ {
+          "X-Auth-Token" : [ ]
+        } ]
+      }
+    },
+    "/admin/roles/_rename" : {
+      "put" : {
+        "tags" : [ "Role API" ],
+        "summary" : "Rename Role",
+        "description" : "",
+        "operationId" : "renameRole",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "rolename",
+          "in" : "query",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Role Rename"
+          }
+        } ],
+        "responses" : {
+          "201" : {
+            "description" : "Valid Role is created"
+          },
+          "404" : {
+            "description" : "Role is not found"
+          }
+        },
+        "security" : [ {
+          "X-Auth-Token" : [ ]
+        } ]
+      }
+    },
+    "/admin/roles/_update" : {
+      "put" : {
+        "tags" : [ "Role API" ],
+        "summary" : "Update Role",
+        "description" : "",
+        "operationId" : "updateRole",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "rolename",
+          "in" : "query",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/RoleUpdateDTO"
+          }
+        } ],
+        "responses" : {
+          "201" : {
+            "description" : "Valid Role is created"
+          },
+          "404" : {
+            "description" : "Role is not found"
+          }
+        },
+        "security" : [ {
+          "X-Auth-Token" : [ ]
+        } ]
+      }
+    },
+    "/admin/roles/resources" : {
+      "put" : {
+        "tags" : [ "Authorization API" ],
+        "summary" : "This function authorizes the given role to perform the specified action on the given resource",
+        "description" : "",
+        "operationId" : "authorizeRole",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "rolename",
+          "in" : "query",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "resourceid",
+          "in" : "query",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : ""
+          }
+        },
+        "security" : [ {
+          "X-Auth-Token" : [ ]
+        } ]
+      },
+      "delete" : {
+        "tags" : [ "Authorization API" ],
+        "summary" : "This function removes the authorization of the role to perform the given action on the specified resource",
+        "description" : "",
+        "operationId" : "denyRole",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "rolename",
+          "in" : "query",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "resourceid",
+          "in" : "query",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : ""
+          }
+        },
+        "security" : [ {
+          "X-Auth-Token" : [ ]
+        } ]
+      },
+      "patch" : {
+        "tags" : [ "Authorization API" ],
+        "summary" : "This function clear the authorization of the specified role to perform the given action on the resource",
+        "description" : "",
+        "operationId" : "clearRoleAuthorization",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "rolename",
+          "in" : "query",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "resourceid",
+          "in" : "query",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : ""
+          }
+        },
+        "security" : [ {
+          "X-Auth-Token" : [ ]
+        } ]
+      }
+    },
+    "/admin/users" : {
+      "post" : {
+        "tags" : [ "User API" ],
+        "summary" : "Create new user",
+        "description" : "",
+        "operationId" : "createUser",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/User Create"
+          }
+        } ],
+        "responses" : {
+          "201" : {
+            "description" : "Valid user is created"
+          }
+        },
+        "security" : [ {
+          "X-Auth-Token" : [ ]
+        } ]
+      },
+      "put" : {
+        "tags" : [ "User API" ],
+        "summary" : "Update user",
+        "description" : "",
+        "operationId" : "updateUser",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "username",
+          "in" : "query",
+          "description" : "username",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Update Claims User"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Valid user is updated"
+          }
+        },
+        "security" : [ {
+          "X-Auth-Token" : [ ]
+        } ]
+      },
+      "delete" : {
+        "tags" : [ "User API" ],
+        "summary" : "Delete a user with the given username",
+        "description" : "Returns HTTP 204 if the user is successfully deleted.",
+        "operationId" : "deleteUser",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "username",
+          "in" : "query",
+          "description" : "username",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "204" : {
+            "description" : "User is deleted"
+          },
+          "404" : {
+            "description" : "Valid user is not found"
+          }
+        },
+        "security" : [ {
+          "X-Auth-Token" : [ ]
+        } ]
+      }
+    },
+    "/admin/users/applications" : {
+      "put" : {
+        "tags" : [ "User API" ],
+        "summary" : "Assign one or more applications to user",
+        "description" : "",
+        "operationId" : "updateApplicationsListOfUser",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "username",
+          "in" : "query",
+          "description" : "Username or userId",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/Update User"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : ""
+          }
+        },
+        "security" : [ {
+          "X-Auth-Token" : [ ]
+        } ]
+      }
+    },
+    "/admin/users/roles" : {
+      "put" : {
+        "tags" : [ "User API" ],
+        "summary" : "Assign one or more roles to user",
+        "description" : "",
+        "operationId" : "updateRoleListOfUser",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "username",
+          "in" : "query",
+          "description" : "username",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/Update User"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : ""
+          }
+        },
+        "security" : [ {
+          "X-Auth-Token" : [ ]
+        } ]
+      }
+    },
+    "/applications" : {
+      "get" : {
+        "tags" : [ "Application API" ],
+        "summary" : "Return applications according to the filter",
+        "description" : "Returns HTTP 404 if the Applications are not found",
+        "operationId" : "getApplications",
+        "produces" : [ "application/json" ],
+        "responses" : {
+          "200" : {
+            "description" : "Valid Applications are found",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "type" : "string"
+              }
+            }
+          },
+          "404" : {
+            "description" : "Valid Applications are not found"
+          }
+        },
+        "security" : [ {
+          "X-Auth-Token" : [ ]
+        } ]
+      }
+    },
+    "/applications/users" : {
+      "get" : {
+        "tags" : [ "Application API" ],
+        "summary" : "Return Users belongs to some Application",
+        "description" : "Returns HTTP 404 if the Users are not found",
+        "operationId" : "getUsersOfApplications",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "query",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Valid Users are found",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "type" : "string"
+              }
+            }
+          },
+          "404" : {
+            "description" : "Valid Users are not found"
+          }
+        },
+        "security" : [ {
+          "X-Auth-Token" : [ ]
+        } ]
+      }
+    },
+    "/resources" : {
+      "get" : {
+        "tags" : [ "Authorization API" ],
+        "summary" : "This function retrieves the list of authorized roles to perform the given action on the specified resource",
+        "description" : "",
+        "operationId" : "getAllowedRolesForResource",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "resourceid",
+          "in" : "query",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Valid Roles are found",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "type" : "string"
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "X-Auth-Token" : [ ]
+        } ]
+      }
+    },
+    "/roles" : {
+      "get" : {
+        "tags" : [ "Role API" ],
+        "summary" : "Get a list of all the roles created in the system",
+        "description" : "",
+        "operationId" : "getRoles",
+        "produces" : [ "application/json" ],
+        "responses" : {
+          "200" : {
+            "description" : "Valid Roles are found",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "type" : "string"
+              }
+            }
+          },
+          "404" : {
+            "description" : "Valid Roles are not found"
+          }
+        },
+        "security" : [ {
+          "X-Auth-Token" : [ ]
+        } ]
+      }
+    },
+    "/roles/resources" : {
+      "get" : {
+        "tags" : [ "Authorization API" ],
+        "summary" : "This function checks whether the given role is authorized to perform the action on the specified resource",
+        "description" : "",
+        "operationId" : "isRoleAuthorized",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "rolename",
+          "in" : "query",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "resourceid",
+          "in" : "query",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : ""
+          }
+        },
+        "security" : [ {
+          "X-Auth-Token" : [ ]
+        } ]
+      }
+    },
+    "/roles/users" : {
+      "get" : {
+        "tags" : [ "Role API" ],
+        "summary" : "Retrieve a list of all users belonging to a role",
+        "description" : "",
+        "operationId" : "getUsersOfRole",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "rolename",
+          "in" : "query",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Valid Role are found",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "type" : "string"
+              }
+            }
+          },
+          "404" : {
+            "description" : "Valid Role are not found"
+          }
+        },
+        "security" : [ {
+          "X-Auth-Token" : [ ]
+        } ]
+      }
+    },
+    "/users" : {
+      "get" : {
+        "tags" : [ "User API" ],
+        "summary" : "Retrieve a list of all users",
+        "description" : "",
+        "operationId" : "getUsers",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "fetch",
+          "in" : "query",
+          "description" : "Returns users according to the filter with or without claims",
+          "required" : true,
+          "type" : "string",
+          "enum" : [ "eager" ]
+        }, {
+          "name" : "filter",
+          "in" : "query",
+          "description" : "Filter expression for filtering",
+          "required" : true,
+          "type" : "string",
+          "x-example" : "pete*, *mith"
+        }, {
+          "name" : "limit",
+          "in" : "query",
+          "description" : "Specifies the desired maximum number of query results",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int32",
+          "x-example" : 10
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Valid users are returned",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/User Fetch"
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "X-Auth-Token" : [ ]
+        } ]
+      }
+    },
+    "/users/applications" : {
+      "get" : {
+        "tags" : [ "User API" ],
+        "summary" : "Return the applications the user is part of",
+        "description" : "",
+        "operationId" : "getApplicationsOfUser",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "username",
+          "in" : "query",
+          "description" : "Username or userId",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Valid user is updated",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "type" : "string"
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "X-Auth-Token" : [ ]
+        } ]
+      }
+    },
+    "/users/roles" : {
+      "get" : {
+        "tags" : [ "User API" ],
+        "summary" : "Get the list of roles that a particular user belongs to",
+        "description" : "",
+        "operationId" : "getRolesOfUser",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "username",
+          "in" : "query",
+          "description" : "username",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Valid user is updated",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "type" : "string"
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "X-Auth-Token" : [ ]
+        } ]
+      }
+    }
+  },
+  "securityDefinitions" : {
+    "X-Auth-Token" : {
+      "type" : "apiKey",
+      "name" : "X-Auth-Token",
+      "in" : "header"
+    }
+  },
+  "definitions" : {
+    "KOMessageDTO" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "string",
+          "readOnly" : true
+        },
+        "message" : {
+          "type" : "string",
+          "readOnly" : true
+        }
+      }
+    },
+    "ResponseDTO" : {
+      "type" : "object",
+      "properties" : {
+        "ko" : {
+          "type" : "array",
+          "readOnly" : true,
+          "items" : {
+            "$ref" : "#/definitions/KOMessageDTO"
+          }
+        }
+      }
+    },
+    "Role" : {
+      "type" : "object",
+      "required" : [ "id" ],
+      "properties" : {
+        "id" : {
+          "type" : "string",
+          "readOnly" : true
+        },
+        "newUsers" : {
+          "type" : "array",
+          "readOnly" : true,
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "permissions" : {
+          "type" : "array",
+          "readOnly" : true,
+          "items" : {
+            "type" : "string"
+          }
+        }
+      }
+    },
+    "Role Rename" : {
+      "type" : "object",
+      "required" : [ "newName" ],
+      "properties" : {
+        "newName" : {
+          "type" : "string",
+          "readOnly" : true
+        }
+      }
+    },
+    "RoleCreateBulkDTO" : {
+      "type" : "object",
+      "required" : [ "newRoles" ],
+      "properties" : {
+        "newRoles" : {
+          "type" : "array",
+          "readOnly" : true,
+          "items" : {
+            "$ref" : "#/definitions/Role"
+          }
+        }
+      }
+    },
+    "RoleDeleteBulkDTO" : {
+      "type" : "object",
+      "properties" : {
+        "deletedRoles" : {
+          "type" : "array",
+          "readOnly" : true,
+          "items" : {
+            "type" : "string"
+          }
+        }
+      }
+    },
+    "RolePermissionBulkDTO" : {
+      "type" : "object",
+      "required" : [ "updatedRoles" ],
+      "properties" : {
+        "updatedRoles" : {
+          "type" : "array",
+          "readOnly" : true,
+          "items" : {
+            "$ref" : "#/definitions/RolePermissionItemBulkDTO"
+          }
+        }
+      }
+    },
+    "RolePermissionItemBulkDTO" : {
+      "type" : "object",
+      "required" : [ "id" ],
+      "properties" : {
+        "id" : {
+          "type" : "string",
+          "readOnly" : true
+        },
+        "authorizePermissions" : {
+          "type" : "array",
+          "readOnly" : true,
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "denyPermissions" : {
+          "type" : "array",
+          "readOnly" : true,
+          "items" : {
+            "type" : "string"
+          }
+        }
+      }
+    },
+    "RoleUpdateBulkDTO" : {
+      "type" : "object",
+      "required" : [ "updatedRoles" ],
+      "properties" : {
+        "updatedRoles" : {
+          "type" : "array",
+          "readOnly" : true,
+          "items" : {
+            "$ref" : "#/definitions/RoleUpdateItemBulkDTO"
+          }
+        }
+      }
+    },
+    "RoleUpdateDTO" : {
+      "type" : "object",
+      "properties" : {
+        "newUsers" : {
+          "type" : "array",
+          "readOnly" : true,
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "deletedUsers" : {
+          "type" : "array",
+          "readOnly" : true,
+          "items" : {
+            "type" : "string"
+          }
+        }
+      }
+    },
+    "RoleUpdateItemBulkDTO" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "string",
+          "readOnly" : true
+        },
+        "newUsers" : {
+          "type" : "array",
+          "readOnly" : true,
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "deletedUsers" : {
+          "type" : "array",
+          "readOnly" : true,
+          "items" : {
+            "type" : "string"
+          }
+        }
+      }
+    },
+    "Update Claims User" : {
+      "type" : "object",
+      "required" : [ "claims" ],
+      "properties" : {
+        "claims" : {
+          "type" : "object",
+          "readOnly" : true,
+          "additionalProperties" : {
+            "type" : "string"
+          }
+        }
+      }
+    },
+    "Update User" : {
+      "type" : "object",
+      "properties" : {
+        "newRoles" : {
+          "type" : "array",
+          "readOnly" : true,
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "deletedRoles" : {
+          "type" : "array",
+          "readOnly" : true,
+          "items" : {
+            "type" : "string"
+          }
+        }
+      }
+    },
+    "User Create" : {
+      "type" : "object",
+      "required" : [ "password", "username" ],
+      "properties" : {
+        "username" : {
+          "type" : "string",
+          "readOnly" : true
+        },
+        "password" : {
+          "type" : "string",
+          "readOnly" : true
+        },
+        "askPassword" : {
+          "type" : "boolean",
+          "readOnly" : true
+        },
+        "roles" : {
+          "type" : "array",
+          "readOnly" : true,
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "claims" : {
+          "type" : "object",
+          "readOnly" : true,
+          "additionalProperties" : {
+            "type" : "string"
+          }
+        }
+      }
+    },
+    "User Fetch" : {
+      "type" : "object",
+      "properties" : {
+        "username" : {
+          "type" : "string"
+        },
+        "claims" : {
+          "type" : "object",
+          "additionalProperties" : {
+            "type" : "string"
+          }
+        }
+      }
+    },
+    "UserCreateBulkDTO" : {
+      "type" : "object",
+      "properties" : {
+        "newUsers" : {
+          "type" : "array",
+          "readOnly" : true,
+          "items" : {
+            "$ref" : "#/definitions/User Create"
+          }
+        }
+      }
+    },
+    "UserDeleteBulkDTO" : {
+      "type" : "object",
+      "properties" : {
+        "deletedUsers" : {
+          "type" : "array",
+          "readOnly" : true,
+          "items" : {
+            "type" : "string"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "properties": [
+
+    {
+      "name": "ljsa.jwt.subject-key",
+      "description":"The \"sub\" (subject) claim identifies the principal that is the\n   subject of the JWT",
+      "defaultValue": "sub"
+    },
+    {
+      "name": "ljsa.jwt.roles-key",
+      "description":"The \"role\" (role) claim listing the subject's roles",
+      "defaultValue": "groups"
+    },
+    {
+      "name": "ljsa.jwt.audience-key",
+      "description":"The audience of a token is the intended recipient of the token",
+      "defaultValue": "clientId"
+    },
+    {
+      "name": "ljsa.jwt.issuer-key",
+      "description":"The issuer of the JWT",
+      "defaultValue": "https://[base-server-url]/oauth2/jwks"
+    },
+    {
+      "name": "ljsa.jwt.signing-key",
+      "description":"Key used to sign the jwt"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <parent>
+    <artifactId>profile-manager</artifactId>
+    <groupId>it.almaviva.eai.ljsa</groupId>
+    <version>1.2.0-SNAPSHOT</version>
+  </parent>
+  <modelVersion>4.0.0</modelVersion>
+  <packaging>pom</packaging>
+  <name>identity-ms</name>
+  <artifactId>identity-ms</artifactId>
+
+  <modules>
+    <module>identity-ms-api</module>
+    <module>identity-ms-core</module>
+    <module>identity-ms-boot</module>
+    <module>identity-ms-service</module>
+    <module>identity-ms-common</module>
+  </modules>
+
+  <repositories>
+    <repository>
+      <id>wso2-maven2-repository</id>
+      <url>https://dist.wso2.org/maven2</url>
+    </repository>
+    <repository>
+      <id>apache-maven2-repo</id>
+      <name>Apache Maven2 Repository</name>
+      <url>https://repo1.maven.org/maven2/</url>
+    </repository>
+  </repositories>
+
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <configuration>
+          <excludePackageNames>it.almaviva.eai.um.common.*</excludePackageNames>
+        </configuration>
+      </plugin>
+
+    </plugins>
+  </build>
+
+</project>

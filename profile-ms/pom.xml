@@ -1,0 +1,20 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>profile-manager</artifactId>
+        <groupId>it.almaviva.eai.ljsa</groupId>
+        <version>1.2.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>profile-ms</artifactId>
+    <packaging>pom</packaging>
+    <name>profile-ms</name>
+
+    <modules>
+        <module>profile-ms-boot</module>
+        <module>profile-ms-api</module>
+        <module>profile-ms-integration</module>
+        <module>profile-ms-core</module>
+        <module>profile-ms-shared</module>
+    </modules>
+
+</project>

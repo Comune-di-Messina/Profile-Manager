@@ -1,0 +1,38 @@
+
+logging:
+  level:
+    it.almaviva.eai.ljsa.sdk.plugins.oidc.security.OpenIdConnectFilter: debug
+
+server:
+  port: 8080
+
+spring:
+  mustache:
+    check-template-location: false
+
+wso2:
+  url: https://spid-dev.impleme.giottolabs.com/
+  username: admin
+  password: admin
+
+ljsa:
+  oidc:
+    issuer-key: https://spid-dev.impleme.giottolabs.com:443/oauth2/token
+    roles-key: groups
+    subject-key: sub
+    url-jwk-provider: https://spid-dev.impleme.giottolabs.com/oauth2/jwks
+  profilemanager:
+    enabled: true
+    micro-service-id: 0bffcb5a-6ffc-4dff-b51d-515de309b2e3
+    security:
+      plaintext: true
+    contact-point: 127.0.0.1:9090
+  ssl-validation: false
+
+grpc:
+  client:
+    profile-grpc-server:
+      address: 'static://127.0.0.1:9090'
+      enableKeepAlive: true
+      keepAliveWithoutCalls: true
+      negotiationType: plaintext

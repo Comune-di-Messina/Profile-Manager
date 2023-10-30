@@ -1,0 +1,57 @@
+syntax = "proto3";
+//import "google/protobuf/empty.proto";
+//import "google/protobuf/wrappers.proto";
+
+package it.almaviva.eai.pm.core.grpc;
+option java_multiple_files = true;
+
+message UUID {
+    string value = 1;
+}
+
+message ProfileManagerRequest {
+    UUID microserviceId = 1;
+    repeated string roles = 2;
+}
+
+message Profile{
+    repeated Role roles = 1;
+    repeated Group groups = 2;
+}
+
+message Role {
+    string name = 1;
+    string wso2name = 2;
+    repeated Action actions = 3;
+
+    message Action{
+        string name = 1;
+        string description = 2;
+    }
+}
+
+message Group {
+    string name = 1;
+    string wso2name = 2;
+    repeated DomainValue domainvalues =3;
+
+    message DomainValue {
+        string value = 1;
+        string description = 2;
+        Domain domain = 3;
+
+        message Domain {
+            string name = 1;
+            string description = 3;
+            string wso2name = 2;
+        }
+    }
+}
+
+message ProfileManagerResponse {
+    Profile profile = 1;
+}
+
+service MyProfile {
+    rpc myprofile(ProfileManagerRequest) returns (ProfileManagerResponse);
+}

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <parent>
+    <artifactId>identity-ms</artifactId>
+    <groupId>it.almaviva.eai.ljsa</groupId>
+    <version>1.2.0-SNAPSHOT</version>
+  </parent>
+  <modelVersion>4.0.0</modelVersion>
+
+  <artifactId>identity-ms-core</artifactId>
+  <dependencies>
+
+
+    <dependency>
+      <groupId>${project.parent.groupId}</groupId>
+      <artifactId>identity-ms-api</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>${project.parent.groupId}</groupId>
+      <artifactId>identity-ms-service</artifactId>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/org.apache.ws.commons.axiom.wso2/axiom -->
+    <dependency>
+      <groupId>org.apache.ws.commons.axiom.wso2</groupId>
+      <artifactId>axiom</artifactId>
+      <version>1.2.11.wso2v1</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/org.apache.axis2.wso2/axis2 -->
+    <dependency>
+      <groupId>org.apache.axis2.wso2</groupId>
+      <artifactId>axis2</artifactId>
+      <version>1.6.1.wso2v4</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/commons-codec.wso2/commons-codec -->
+    <dependency>
+      <groupId>commons-codec.wso2</groupId>
+      <artifactId>commons-codec</artifactId>
+      <version>1.4.0.wso2v1</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/commons-httpclient.wso2/commons-httpclient -->
+    <dependency>
+      <groupId>commons-httpclient.wso2</groupId>
+      <artifactId>commons-httpclient</artifactId>
+      <version>3.1.0.wso2v1</version>
+    </dependency>
+
+    <dependency>
+      <groupId>commons-logging</groupId>
+      <artifactId>commons-logging</artifactId>
+      <version>1.1.1</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/org.apache.httpcomponents.wso2/httpcore -->
+    <dependency>
+      <groupId>org.apache.httpcomponents.wso2</groupId>
+      <artifactId>httpcore</artifactId>
+      <version>4.1.0-wso2v1</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/org.apache.neethi.wso2/neethi -->
+    <dependency>
+      <groupId>org.apache.neethi.wso2</groupId>
+      <artifactId>neethi</artifactId>
+      <version>2.0.4.wso2v3</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.wso2.carbon</groupId>
+      <artifactId>org.wso2.carbon.um.ws.api.stub</artifactId>
+      <version>4.2.2</version>
+    </dependency>
+
+
+    <!-- https://mvnrepository.com/artifact/org.wso2.securevault/org.wso2.securevault -->
+    <!-- https://mvnrepository.com/artifact/org.wso2.securevault/org.wso2.securevault -->
+    <dependency>
+      <groupId>org.wso2.securevault</groupId>
+      <artifactId>org.wso2.securevault</artifactId>
+      <version>1.1.4</version>
+    </dependency>
+
+
+    <!-- https://mvnrepository.com/artifact/wsdl4j.wso2/wsdl4j -->
+    <dependency>
+      <groupId>wsdl4j.wso2</groupId>
+      <artifactId>wsdl4j</artifactId>
+      <version>1.6.2.wso2v2</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/org.apache.ws.commons.schema.wso2/XmlSchema -->
+    <dependency>
+      <groupId>org.apache.ws.commons.schema.wso2</groupId>
+      <artifactId>XmlSchema</artifactId>
+      <version>1.4.7.wso2v1</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>commons-codec</groupId>
+      <artifactId>commons-codec</artifactId>
+      <version>1.14</version>
+      <scope>runtime</scope>
+    </dependency>
+
+
+  </dependencies>
+
+
+</project>

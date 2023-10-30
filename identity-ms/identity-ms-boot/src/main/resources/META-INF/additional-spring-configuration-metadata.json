@@ -1,0 +1,22 @@
+{
+  "properties": [
+
+    {
+      "name": "wso2.url",
+      "type": "java.lang.String",
+      "sourceType": "it.almaviva.eai.um.boot.UserManagerConfigurationProperties"
+    }
+  ,
+    {
+      "name": "wso2.username",
+      "type": "java.lang.String",
+      "sourceType": "it.almaviva.eai.um.boot.UserManagerConfigurationProperties"
+    }
+  ,
+    {
+      "name": "wso2.password",
+      "type": "java.lang.String",
+      "sourceType": "it.almaviva.eai.um.boot.UserManagerConfigurationProperties"
+    }
+  ]
+}

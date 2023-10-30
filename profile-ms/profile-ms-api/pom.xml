@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>profile-ms</artifactId>
+        <groupId>it.almaviva.eai.ljsa</groupId>
+        <version>1.2.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>profile-ms-api</artifactId>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+
+        <!-- SWAGGER DOCS -->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>2.9.2</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>2.9.2</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>it.almaviva.eai.ljsa</groupId>
+            <artifactId>profile-ms-core</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>it.almaviva.eai.ljsa</groupId>
+            <artifactId>ljsa-sdk-plugins-oidc</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>it.almaviva.eai.ljsa</groupId>
+            <artifactId>profile-ms-shared</artifactId>
+        </dependency>
+
+
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>4.1.2</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>json-path</artifactId>
+            <version>4.1.2</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest-all</artifactId>
+            <version>1.3</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.1.2</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                            <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+                        </manifest>
+                        <index>true</index>
+                    </archive>
+                </configuration>
+            </plugin>
+          <plugin>
+            <groupId>com.github.kongchen</groupId>
+            <artifactId>swagger-maven-plugin</artifactId>
+            <version>3.1.8</version>
+            <configuration>
+              <apiSources>
+                <apiSource>
+                    <swaggerDirectory>${project.build.outputDirectory}</swaggerDirectory>
+                    <outputFormats>json</outputFormats>
+                    <basePath>/</basePath>
+                    <info>
+                        <title>ProfileManagerAPI</title>
+                        <version>${project.version}</version>
+                    </info>
+                    <springmvc>true</springmvc>
+                    <locations>
+                        <location>
+                            it.almaviva.eai.pm.api.controllers.IUserController
+                        </location>
+                        <location>
+                            it.almaviva.eai.pm.api.controllers.IAdminController
+                        </location>
+                    </locations>
+                    <schemes>http,https</schemes>
+                    <securityDefinitions>
+                        <securityDefinition>
+                            <name>X-Auth-Token</name>
+                            <description>JWT</description>
+                            <type>apiKey</type>
+                            <in>header</in>
+                        </securityDefinition>
+                    </securityDefinitions>
+                </apiSource>
+
+              </apiSources>
+            </configuration>
+            <executions>
+              <execution>
+                <phase>compile</phase>
+                <goals>
+                  <goal>generate</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+
+    </build>
+
+
+</project>

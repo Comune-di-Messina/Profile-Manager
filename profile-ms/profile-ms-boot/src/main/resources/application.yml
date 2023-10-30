@@ -1,0 +1,46 @@
+debug: true
+server:
+  port: 8181
+
+logging:
+  level:
+    it.almaviva.eai.ljsa.sdk.plugins.oidc.security.OpenIdConnectFilter: debug
+# Spring Boot configuration
+spring:
+  application:
+    name: profilemanager
+  jackson:
+    default-property-inclusion: non_null
+  # Database
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/profile_manager_db
+    username: postgres
+    password: postgres
+  # JPA properties
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+    database: postgresql
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        jdbc:
+          lob:
+            non_contextual_creation: true
+    open-in-view: false
+  mustache:
+    check-template-location: false
+
+# Ljsa configuration
+ljsa:
+  oidc:
+    issuer-key: https://spid-dev.impleme.giottolabs.com:443/oauth2/token
+    roles-key: groups
+    subject-key: sub
+    url-jwk-provider: https://spid-dev.impleme.giottolabs.com/oauth2/jwks
+  ssl-validation: false
+  profilemanager:
+    micro-service-id: 6a13586a-3b04-4228-9a88-191619630060
+

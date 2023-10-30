@@ -1,0 +1,70 @@
+{
+  "properties": [
+    {
+      "name": "ljsa.ssl-validation",
+      "type": "java.lang.Boolean",
+      "sourceType": "it.almaviva.eai.ljsa.sdk.core.configuration.LjsaConfigurationProperties"
+    }
+  ,
+    {
+      "name": "ljsa.profilemanager.enabled",
+      "type": "java.lang.Boolean",
+      "sourceType": "it.almaviva.eai.ljsa.sdk.core.configuration.LjsaProfileManagerConfiguratinProperties"
+    },
+    {
+      "name": "ljsa.profilemanager.micro-service-id",
+      "type": "java.lang.String",
+      "sourceType": "it.almaviva.eai.ljsa.sdk.core.configuration.LjsaProfileManagerConfiguratinProperties",
+      "description":"An unambiguous unique identifier of the microservice"
+    },
+    {
+      "name": "ljsa.profilemanager.contact-point",
+      "type": "java.lang.String",
+      "sourceType": "it.almaviva.eai.ljsa.sdk.core.configuration.LjsaProfileManagerConfiguratinProperties",
+      "description":"Profile manager grp server endpoint"
+    },
+    {
+      "name": "ljsa.profilemanager.security.plaintext",
+      "type": "java.lang.String",
+      "sourceType": "it.almaviva.eai.ljsa.sdk.core.configuration.LjsaProfileManagerConfiguratinProperties",
+      "description":"enable disable TLS onver grpc"
+    },
+    {
+      "name": "ljsa.skip-urls",
+      "type": "java.util.List",
+      "sourceType": "it.almaviva.eai.ljsa.sdk.core.configuration.LjsaConfigurationProperties",
+      "description":"avoid filtering of the given request."
+    }
+  ],
+  "hints": [
+
+    {
+      "name" : "ljsa.filter",
+      "values": [
+        {
+          "value" : "simple",
+          "description" : "Enable LJSA simple filter"
+        },
+        {
+          "value" : "profilemanager",
+          "description" : "Enable Profile Manager filter"
+        }
+
+      ]
+    },
+    {
+      "name" : "ljsa.ssl-validation",
+      "values": [
+        {
+          "value" : "true",
+          "description" : "Enable SSL"
+        },
+        {
+          "value" : "false",
+          "description" : "Disable SSL"
+        }
+
+      ]
+    }
+  ]
+}
